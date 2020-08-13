@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import HomePage from './containers/HomePage';
+// import HomePage from './containers/HomePage';
 import LogIn from './containers/LogIn';
 import MainPage from './containers/MainPage';
 
@@ -15,8 +15,8 @@ import { getEventLists } from './services/index';
 
 import MainRoute from './routes/MainRoute';
 import AuthRoute from './routes/AuthRoute';
-import WelcomeRoute from './routes/WelcomeRoute';
-
+// import WelcomeRoute from './routes/WelcomeRoute';
+import Error from "./routes/Error";
 function App() {
 
   const events = useContext(EventContext); 
@@ -24,6 +24,7 @@ function App() {
   useEffect(() => {
     getEventLists()
     .then(res => {
+      console.log(res)
       events.setEvent({
         events: res.lists
       })
@@ -34,10 +35,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <WelcomeRoute exact path="/" component={HomePage} />
+        {/*<WelcomeRoute exact path="/" component={HomePage} />*/}
         <AuthRoute path="/login" component={LogIn} />
         <MainRoute path="/room" component={MainPage} />
-        <Redirect to='/' />
+        <Route path="/error" component={Error} exact/>
+        <Redirect to='/login' />
       </Switch>
     </Router>
   );

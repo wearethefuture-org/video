@@ -24,7 +24,8 @@ const HomePage = (props) => {
   const handleChange = (event) => {
     setEventId(event.target.value);
   }
-
+  // console.log(events);
+  // console.log(user)
   return (
     <div className='homepage'>
       {
