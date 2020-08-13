@@ -1,0 +1,39 @@
+.main {
+  background: #030000;
+  padding: 20px;
+}
+
+.main .title {
+  font-size: 43px;
+  color: white;
+  font-weight: bold;
+}
+
+.main .checked-in-status {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.main .checked-in-status .checked-in, .main .checked-in-status .not-checked-in {
+  display: flex;
+  align-items: center;
+}
+
+.main .members {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.main .members-offline {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  padding: 20px;
+  margin-bottom: 85px;
+}

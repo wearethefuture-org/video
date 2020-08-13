@@ -1,0 +1,86 @@
+.member {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Times New Roman", serif;
+}
+
+.member_offline {
+  display: flex;
+  margin: 35px 0 0 0;
+}
+
+.member .member_box {
+  background: white;
+  color: black;
+  font-size: 14px;
+  padding: 7px;
+  width: 192px;
+  margin-bottom: 30px;
+}
+
+.member .member_box_offline {
+  background: white;
+  color: black;
+  font-size: 14px;
+  padding: 7px;
+  width: 94px;
+  margin: 0 0 0 35px;
+}
+
+.member .member_box > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /*margin: 10px;*/
+  max-height: 100px;
+  line-height: 0.3;
+  margin-top: -2px;
+}
+
+.member .member_box > div .profile_img {
+  margin-top: -5px;
+  width: 60px;
+  height: 60px;
+}
+
+.member .member_box > div .profile_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.member .member_box > div button {
+  font-size: 14px;
+  color: white;
+  margin: 10px 0 5px 0;
+}
+
+.member .member_box > div button.checkedInBtn {
+  font-size: 12px;
+  font-weight: 600;
+  background: #4c95ec;
+  border-radius: 20px;
+  border: none;
+  padding: 5px;
+}
+
+.member .member_box > div button.checkedInBtn:hover{
+  background: #7abaff;
+}
+
+.member .member_box > div button.notCheckedInBtn {
+  background: #4c95ec;
+  border: none;
+  border-radius: 20px;
+}
+
+.member_info {
+  min-width: 120px;
+}
+
+.member_info_offline {
+  width: 94px;
+  height: 40px;
+  line-height: 0.5;
+  margin: -12px 0 10px 0;
+}
