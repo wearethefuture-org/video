@@ -47,7 +47,7 @@ let ids = [];
 app.io.on('connection', function(socket) {
 
 	socket.on('toServer', function(data) {
-      if (!ids.includes(data.id)) ids.push(data.id);
+    if (!ids.includes(data.id)) ids.push(data.id);
 		socket.broadcast.emit('broadcast', ids);
   });
 
