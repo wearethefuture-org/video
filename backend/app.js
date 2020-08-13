@@ -10,8 +10,6 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
-app.io = require('socket.io')();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -40,24 +38,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-let ids = [];
-
-app.io.on('connection', function(socket) {
-
-	socket.on('toServer', function(data) {
-    if (!ids.includes(data.id)) ids.push(data.id);
-		socket.broadcast.emit('broadcast', ids);
-  });
-
-  socket.on('askVideo', function(data) {
-    const local = data.local;
-    const remote = data.remote;
-    console.log(local, "to", remote);
-    socket.broadcast.emit('broadcastVideo', {local: local, remote: remote});
-  });
-  
 });
 
 module.exports = app;

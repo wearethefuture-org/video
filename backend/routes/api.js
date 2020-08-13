@@ -4,27 +4,13 @@ var router = express.Router();
 var axios = require('axios');
 const qs = require('qs');
 var faker = require("faker");
-const { UserBindingContext } = require('twilio/lib/rest/chat/v2/service/user/userBinding');
 var AccessToken = require("twilio").jwt.AccessToken;
 var VideoGrant = AccessToken.VideoGrant;
-
-const config = require('./config');
-const { videoToken } = require('./tokens.js');
-
-const sendTokenResponse = (token, res) => {
-  res.set('Content-Type', 'application/json');
-  res.send(
-    JSON.stringify({
-      token: token.toJwt()
-    })
-  );
-};
 
 
 const SWOOGO_API_KEY = process.env.SWOOGO_API_KEY;
 const SWOOGO_API_SECRET = process.env.SWOOGO_API_SECRET;
 const basic_token = Buffer.from(`${SWOOGO_API_KEY}:${SWOOGO_API_SECRET}`).toString('base64');
-
 
 /* GET Events Lists. */
 router.get('/getEvents', function(req, res, next) {
@@ -92,13 +78,6 @@ router.get('/getEventMemners/:eventId', function(req, res, next) {
   }).catch((err) => {
     res.sendStatus(400)
   })
-});
-
-router.post('/getToken', function(req, res, next) {
-  const identity = req.body.identity;
-  const room = req.body.room;
-  const token = videoToken(identity, room, config);
-  sendTokenResponse(token, res);
 });
 
 // Endpoint to generate access token
