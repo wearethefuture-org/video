@@ -1,8 +1,17 @@
 import React from 'react';
 
 import './index.css';
+
 // import { LocalParticipant } from 'twilio-video';
 import Participant from './Participant';
+import IconComponent from '../IconComponent';
+
+const icons = [
+  { icon: 'mic', title: 'mic' },
+  { icon: 'videocam', title: 'camera' },
+  { icon: 'tv', title: 'screen' },
+  { icon: 'exit_to_app', title: 'leave', styles: { color: '#fff',  backgroundColor: '#f53d59' } },
+];
 
 const VideoComponent = ({ localParticipant, remoteParticipants }) => (
   <div className="videoComponent">
@@ -20,7 +29,7 @@ const VideoComponent = ({ localParticipant, remoteParticipants }) => (
         </div>
       </div>
       <div className="video_control">
-
+        {icons.map((item) => <IconComponent key={item.title} {...item} />)}
       </div>
     </div>
     <div className="chat">

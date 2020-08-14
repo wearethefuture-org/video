@@ -1,0 +1,26 @@
+.icon-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-control__icon {
+  color: #fff;
+  background: #01b27c;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon-control__title {
+  color: #fff;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.icon-control--off .icon-control__icon {
+  color: #000;
+  background-color: #fff;
+}

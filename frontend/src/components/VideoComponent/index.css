@@ -28,6 +28,17 @@
 .videoComponent .video .video_control {
   height: 100px;
   border: 10px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoComponent .video .video_control .icon-control + .icon-control {
+  margin-left: 5%;
+}
+
+.videoComponent .video .video_control .icon-control:last-child {
+  margin-left: 10%;
 }
 
 .videoComponent .chat {
