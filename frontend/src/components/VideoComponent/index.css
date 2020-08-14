@@ -125,9 +125,11 @@ position: relative;
   outline: none;
   border: none;
   border-radius: 3px;
+  padding-left: 10px;
 }
 .chat_text::placeholder{
   color: #408de3;
+
 }
 .chat_submit{
   border: none;
