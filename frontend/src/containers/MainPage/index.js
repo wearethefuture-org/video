@@ -9,6 +9,7 @@ import { EventContext } from '../../contexts/event';
 import './index.css';
 
 import socketio from 'socket.io-client';
+import Room from '../../components/VideoComponent/room';
 
 const MainPage = () => {
 
@@ -63,7 +64,7 @@ const MainPage = () => {
         )}
       </div>
       <div className='room'>
-        <VideoComponent token={token} roomName={roomName} />
+        <Room token={token} roomName={roomName} />
       </div>
       <div className="title">
         SPEAKER CHECK-IN-VIDEO & TEXT CHAT

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
+import VideoComponent from '.';
 
-const Room = ({ roomName, token, handleLogout }) => {
+const Room = ({ roomName, token }) => {
   const [room, setRoom] = useState(null);
   const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
+    if (!roomName || !token) {
+      return;
+    }
+
     const participantConnected = participant => {
       setParticipants(prevParticipants => [...prevParticipants, participant]);
     };
@@ -41,27 +46,20 @@ const Room = ({ roomName, token, handleLogout }) => {
     };
   }, [roomName, token]);
 
-  const remoteParticipants = participants.map((participant, index) => (
-    <Participant key={index} participant={participant} />
-  ));
+  if (!roomName || !token || !room) {
+    return <VideoComponent />;
+  }
 
-  return (
-    <div className="room" style={{color: "white"}} >
-      <h2>Room: {roomName}</h2>
-      <div className="local-participant">
-        {room ? (
-          <Participant
-            key={room.localParticipant.sid}
-            participant={room.localParticipant}
-          />
-        ) : (
-          ''
-        )}
-      </div>
-      <h3>Remote Participants</h3>
-      <div className="remote-participants">{remoteParticipants}</div>
-    </div>
-  );
+  const remoteParticipants = participants.map((participant, index) => {
+    return (
+      <Participant key={index} participant={participant} />
+    )
+  });
+
+  return <VideoComponent
+    localParticipant={room.localParticipant}
+    remoteParticipants={remoteParticipants}
+  />;
 };
 
 export default Room;

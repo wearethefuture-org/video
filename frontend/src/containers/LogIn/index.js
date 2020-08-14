@@ -12,7 +12,6 @@ const LogIn = React.memo((props) => {
   useEffect(()=>{
     let obj = events.users.find(o => o.email === user.email);
     if(!events.roomId) return;
-    console.log('bla')
     if (obj) {
       // obj.checked_in_at = true;
       user.setUser({

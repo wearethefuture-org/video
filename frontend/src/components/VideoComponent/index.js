@@ -1,53 +1,38 @@
 import React from 'react';
-import Room from './room';
 
 import './index.css';
+// import { LocalParticipant } from 'twilio-video';
+import Participant from './Participant';
 
-const VideoComponent = (props) => {
-
-  const { token, roomName } = props;
-
-  const placeRoom = () => {
-    if (token) {
-      return <Room roomName={roomName} token={token} />;
-    }
-    else {
-      return <p>fail</p>;
-    }
-  }
-
-  return (
-      <>
-        {placeRoom()}
-        <div className="videoComponent">
-
-          <div className="video">
-            <div className="video_body">
-              <div className="video_body_1">
-
-
-              </div>
-              <div className="video_body_2">
-
-              </div>
-            </div>
-            <div className="video_control">
-
-            </div>
-          </div>
-          <div className="chat">
-            <div className="chat_body">
-
-            </div>
-            <div className="chat_sender">
-
-            </div>
-          </div>
+const VideoComponent = ({ localParticipant, remoteParticipants }) => (
+  <div className="videoComponent">
+    <div className="video">
+      <div className="video_body">
+        <div className="video_body_1">
+          {localParticipant && <Participant participant={localParticipant} />}
         </div>
-        </>
+        <div className="video_body_2">
+          { 
+            remoteParticipants && 
+            remoteParticipants.length && 
+            <Participant participant={remoteParticipants[0]} />
+          } 
+        </div>
+      </div>
+      <div className="video_control">
 
-  );
-}
+      </div>
+    </div>
+    <div className="chat">
+      <div className="chat_body">
+
+      </div>
+      <div className="chat_sender">
+
+      </div>
+    </div>
+  </div>
+);
 
 export default VideoComponent;
 
