@@ -1,3 +1,6 @@
+/**{*/
+/*  box-sizing: border-box;*/
+/*}*/
 .videoComponent {
   height: 600px;
   border: 10px solid white;
@@ -84,3 +87,68 @@
   height: 100px;
   border: 10px solid white;
 }
+.chat_sender{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  /*box-sizing: border-box;*/
+}
+
+
+#clip{
+  display: none;
+}
+.chat_form{
+  /*box-sizing: border-box;*/
+  background-color: #fdfdfd;
+  border-right: 2px;
+  height: 80%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+justify-content: center;
+}
+.chat_clip{
+  margin-left: 3px;
+}
+.chat_submit_container{
+position: relative;
+  display: flex;
+  align-items: center;
+}
+.chat_text{
+  height: 40px;
+  color: #408de3;
+  background-color: #e5e7e9;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+.chat_text::placeholder{
+  color: #408de3;
+}
+.chat_submit{
+  border: none;
+  background-color: #fd0000;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 7px;
+  top: 9px;
+  outline: none;
+}
+.chat_submit img{
+  width: 12px;
+}
+.chat_smile{
+  margin-left: 5px;
+}
+
+
+

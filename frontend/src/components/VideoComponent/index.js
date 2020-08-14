@@ -6,6 +6,7 @@ import './index.css';
 import Participant from './Participant';
 import IconComponent from '../IconComponent';
 import defaultProfilePhoto from '../../assets/images/default_profile_photo.jpg';
+import ChatForm from "./chatForm";
 
 const icons = [
   { icon: 'mic', title: 'mic' },
@@ -46,7 +47,7 @@ const VideoComponent = ({ localParticipant, remoteParticipants }) => (
         </div>
       </div>
       <div className="chat_sender">
-
+      <ChatForm/>
       </div>
     </div>
   </div>
