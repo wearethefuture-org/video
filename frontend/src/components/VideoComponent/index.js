@@ -5,6 +5,7 @@ import './index.css';
 // import { LocalParticipant } from 'twilio-video';
 import Participant from './Participant';
 import IconComponent from '../IconComponent';
+import defaultProfilePhoto from '../../assets/images/default_profile_photo.jpg';
 
 const icons = [
   { icon: 'mic', title: 'mic' },
@@ -34,7 +35,15 @@ const VideoComponent = ({ localParticipant, remoteParticipants }) => (
     </div>
     <div className="chat">
       <div className="chat_body">
+        <div className="message">
+          <div className="message__user">
+            <img src={defaultProfilePhoto} alt="Profile" />
+          </div>
 
+          <div className="message__content">
+            <p>Amayah Bentley</p>
+          </div>
+        </div>
       </div>
       <div className="chat_sender">
 
