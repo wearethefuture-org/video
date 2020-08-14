@@ -20,7 +20,7 @@ const LogIn = React.memo((props) => {
       })
       props.history.push(`/room/${events.roomId}`)
     } else {
-      props.history.push('/error')
+      // props.history.push('/error')
     }
   },[events.roomId])
 
